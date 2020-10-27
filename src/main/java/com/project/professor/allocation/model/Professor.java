@@ -1,27 +1,42 @@
 package com.project.professor.allocation.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "professor")
 public class Professor {
 
-	private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(name = "cpf", nullable = false)
 	private String cpf;
+	
+	@Column(name = "name", nullable = false, unique = true)
 	private String name;
 
 	public Professor() {
 		super();
 	}
 
-	public Professor(long id, String cpf, String name) {
+	public Professor(Long id, String cpf, String name) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
 		this.name = name;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
