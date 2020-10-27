@@ -7,9 +7,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +31,12 @@ public class Allocation {
 	
 	@Column(name = "start", nullable = false, columnDefinition = "TIME")
 	private Time start;
+	
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	private Professor professor;
+	
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	private Course course;
 
 	public Allocation() {
 		super();
@@ -72,6 +80,22 @@ public class Allocation {
 
 	public void setStart(Time start) {
 		this.start = start;
+	}
+	
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+	
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 }
