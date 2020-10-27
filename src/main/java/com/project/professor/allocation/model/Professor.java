@@ -1,10 +1,16 @@
 package com.project.professor.allocation.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +26,12 @@ public class Professor {
 	
 	@Column(name = "name", nullable = false, unique = true)
 	private String name;
+	
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
+	private Departament departament;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "professor", fetch = FetchType.LAZY)
+	private List<Allocation> allocations;
 
 	public Professor() {
 		super();
@@ -55,5 +67,20 @@ public class Professor {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public Departament getDepartament() {
+		return departament;
+	}
 
+	public void setDepartament(Departament departament) {
+		this.departament = departament;
+	}
+	
+	public List<Allocation> getAllocations() {
+		return allocations;
+	}
+
+	public void setAllocations(List<Allocation> allocations) {
+		this.allocations = allocations;
+	}
 }
