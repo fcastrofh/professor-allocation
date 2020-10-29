@@ -83,4 +83,9 @@ public class Professor {
 	public void setAllocations(List<Allocation> allocations) {
 		this.allocations = allocations;
 	}
+	
+	@Override
+	public String toString() {
+		return "Professor [id=" + id + ", name=" + name + ", cpf=" + cpf + ", departament=" + departament + "]";
+	}
 }
