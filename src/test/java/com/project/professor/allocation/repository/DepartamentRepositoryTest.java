@@ -55,4 +55,18 @@ public class DepartamentRepositoryTest {
 		// Print
 		System.out.println(departament);
 	}
+	
+	@Test
+	public void save_update() {
+		// Arrange
+		Departament departament = new Departament();
+		departament.setId(1L);
+		departament.setName("Departament 2");
+
+		// Act
+		departament = departamentRepository.save(departament);
+
+		// Print
+		System.out.println(departament);
+	}
 }
