@@ -1,5 +1,7 @@
 package com.project.professor.allocation.repository;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -19,6 +21,15 @@ public class DepartamentRepositoryTest {
 	@Autowired
 	private DepartamentRepository departamentRepository;
 
+	@Test
+	public void findAll() {
+		// Act
+		List<Departament> departaments = departamentRepository.findAll();
+
+		// Print
+		departaments.stream().forEach(System.out::println);
+	}
+	
 	@Test
 	public void save_create() {
 		// Arrange
