@@ -16,7 +16,7 @@ import com.project.professor.allocation.model.Professor;
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 @TestPropertySource(locations = "classpath:application.properties")
-public class ProfessorRepositoryTes {
+public class ProfessorRepositoryTest {
 	
 	@Autowired
 	private ProfessorRepository professorRepository;
