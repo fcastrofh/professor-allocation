@@ -78,4 +78,10 @@ public class DepartamentRepositoryTest {
 		// Act
 		departamentRepository.deleteById(id);
 	}
+	
+	@Test
+	public void deleteAll() {
+		// Act
+		departamentRepository.deleteAllInBatch();
+	}
 }
