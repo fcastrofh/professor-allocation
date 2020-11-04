@@ -31,6 +31,18 @@ public class DepartamentRepositoryTest {
 	}
 	
 	@Test
+	public void findById() {
+		// Arrange
+		Long id = 1L;
+
+		// Act
+		Departament departament = departamentRepository.findById(id).orElse(null);
+
+		// Print
+		System.out.println(departament);
+	}
+	
+	@Test
 	public void save_create() {
 		// Arrange
 		Departament departament = new Departament();
