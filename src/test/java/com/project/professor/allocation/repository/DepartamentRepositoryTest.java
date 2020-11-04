@@ -69,4 +69,13 @@ public class DepartamentRepositoryTest {
 		// Print
 		System.out.println(departament);
 	}
+	
+	@Test
+	public void deleteById() {
+		// Arrange
+		Long id = 1L;
+
+		// Act
+		departamentRepository.deleteById(id);
+	}
 }
